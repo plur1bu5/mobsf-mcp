@@ -137,6 +137,26 @@ Dynamic analysis requires an Android emulator with **root access** (for writable
 
 ### Emulator Setup
 
+Two options:
+
+#### Option A: Docker Android Emulator (simplest)
+
+Use [docker-android](https://github.com/budtmo/docker-android) — a pre-built Docker image with Android emulator, SDK, and ADB ready to go. No local SDK install needed.
+
+```bash
+docker run -d --privileged -p 6080:6080 -p 5554:5554 -p 5555:5555 \
+  -e DEVICE="pixel_6" -e EMULATOR_ARGS="-writable-system" \
+  budtmo/docker-android:emulator_13.0
+
+# Wait for boot, then root it
+adb connect localhost:5555
+adb root && adb remount
+```
+
+Then set `ANALYZER_IDENTIFIER=localhost:5555` in `docker-compose.yml` (instead of `emulator-5554`).
+
+#### Option B: Manual AVD (more control)
+
 ```bash
 # Install Android SDK command-line tools, then:
 sdkmanager "system-images;android-33;google_apis;x86_64" "platforms;android-33" "platform-tools"
