@@ -1,0 +1,16 @@
+services:
+  mobsf:
+    image: opensecurity/mobile-security-framework-mobsf:latest
+    container_name: mobsf
+    network_mode: host
+    environment:
+      - DJANGO_SUPERUSER_USERNAME=mobsf
+      - DJANGO_SUPERUSER_PASSWORD=mobsf
+      - MOBSF_ANALYZER_IDENTIFIER=emulator-5554
+      - ANALYZER_IDENTIFIER=emulator-5554
+      - MOBSF_PLATFORM=host
+    volumes:
+      - ./mobsf-data:/home/mobsf/.MobSF
+      - ./mobsf-data/.android:/home/mobsf/.android
+    entrypoint: /home/mobsf/.MobSF/entrypoint-wrapper.sh
+    restart: unless-stopped
