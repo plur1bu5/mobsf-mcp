@@ -4,7 +4,7 @@
   <img src="assets/logo.png" alt="mobsf-mcp" width="400">
 </p>
 
-An MCP (Model Context Protocol) server that gives AI agents the ability to perform autonomous Android security analysis — static analysis, dynamic analysis, and Frida instrumentation — powered by [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF).
+An MCP (Model Context Protocol) server that gives AI agents the ability to perform autonomous Android security analysis - static analysis, dynamic analysis, and Frida instrumentation - powered by [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF).
 
 Point your AI agent at an APK and let it autonomously discover vulnerabilities, inspect decompiled source, test exported activities, bypass SSL pinning with Frida, and generate security reports.
 
@@ -133,7 +133,7 @@ MOBSF_URL=http://localhost:8000 MOBSF_API_KEY=your_key mobsf-mcp
 
 Dynamic analysis requires an Android emulator with **root access** (for writable `/system`) connected to MobSF.
 
-> **Note on API level:** MobSF v4.5.1 uses Frida 17.15.3 which has a known compatibility issue with Android 13 (API 33) — `frida.attach()` crashes with a `TypeError`. For full DAST including Frida instrumentation, use an Android 11 (API 30) emulator. ADB commands, exported activity testing, TLS tests, and logcat all work fine on API 33. This will be resolved when MobSF updates its Frida dependency.
+> **Note on API level:** MobSF v4.5.1 uses Frida 17.15.3 which has a known compatibility issue with Android 13 (API 33) - `frida.attach()` crashes with a `TypeError`. For full DAST including Frida instrumentation, use an Android 11 (API 30) emulator. ADB commands, exported activity testing, TLS tests, and logcat all work fine on API 33. This will be resolved when MobSF updates its Frida dependency.
 
 ### Emulator Setup
 
@@ -141,7 +141,7 @@ Two options:
 
 #### Option A: Docker Android Emulator (simplest)
 
-Use [docker-android](https://github.com/budtmo/docker-android) — a pre-built Docker image with Android emulator, SDK, and ADB ready to go. No local SDK install needed.
+Use [docker-android](https://github.com/budtmo/docker-android) - a pre-built Docker image with Android emulator, SDK, and ADB ready to go. No local SDK install needed.
 
 ```bash
 docker run -d --privileged -p 6080:6080 -p 5554:5554 -p 5555:5555 \
@@ -176,10 +176,10 @@ adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 5; done'
 
 This project's `docker-compose.yml` is pre-configured:
 
-- `network_mode: host` — Docker shares the host network, so ADB just works
-- `MOBSF_PLATFORM=host` — disables Docker Desktop hostname translation
-- `ANALYZER_IDENTIFIER=emulator-5554` — points MobSF to the emulator
-- `./mobsf-data/.android/` — ADB keys mounted for authorization
+- `network_mode: host` - Docker shares the host network, so ADB just works
+- `MOBSF_PLATFORM=host` - disables Docker Desktop hostname translation
+- `ANALYZER_IDENTIFIER=emulator-5554` - points MobSF to the emulator
+- `./mobsf-data/.android/` - ADB keys mounted for authorization
 - Entrypoint wrapper patches MobSF to support API 33+
 
 **Important**: Kill the host ADB server before starting MobSF Docker to avoid ADB conflicts:
@@ -248,5 +248,5 @@ MIT © [plur1bu5](https://github.com/plur1bu5)
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/plur1bu5">plur1bu5</a> — if this helps you hack smarter, drop a ⭐</sub>
+  <sub>Built with ❤️ by <a href="https://github.com/plur1bu5">plur1bu5</a> - if this helps you hack smarter, drop a ⭐</sub>
 </p>

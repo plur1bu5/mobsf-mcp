@@ -144,7 +144,7 @@ cd Mobile-Security-Framework-MobSF
 ./run.sh
 ```
 
-Then connect your emulator (Genymotion or Android Studio AVD) — MobSF auto-detects via ADB.
+Then connect your emulator (Genymotion or Android Studio AVD) - MobSF auto-detects via ADB.
 
 ### With Docker (static analysis only is fine):
 
