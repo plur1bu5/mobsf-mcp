@@ -223,4 +223,10 @@ python3 scripts/test_pipeline.py
 
 ## License
 
-MIT
+MIT © [plur1bu5](https://github.com/plur1bu5)
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/plur1bu5">plur1bu5</a> — if this helps you hack smarter, drop a ⭐</sub>
+</p>
