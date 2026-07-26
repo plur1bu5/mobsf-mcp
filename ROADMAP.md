@@ -21,7 +21,7 @@ Short, medium, and long-term plans for mobsf-mcp. PRs welcome.
 
 ## Long-term
 
-- **Pre-built emulator integration** — the README now documents `budtmo/docker-android` as an option. Next step: ship a unified `docker-compose.yml` that starts both MobSF and the emulator in one command, with ADB auto-wired.
+- **Optional `docker-compose.emulator.yml`** — separate compose override that adds `budtmo/docker-android` alongside MobSF. Users opt in: `docker compose -f docker-compose.yml -f docker-compose.emulator.yml up`. Keeps the base pull small, DAST is one flag away. Handles ADB wiring and `ANALYZER_IDENTIFIER` automatically.
 - **Agent workflow guides** — documented patterns for Hermes, Claude Code, and autonomous workflows: "scan this APK, if score < 50 run dynamic analysis, if secrets found inspect source, generate PDF report."
 - **Demo video/GIF** — screen capture of an LLM autonomously analyzing an APK from upload to report.
 - **Broader MCP ecosystem** — contribute the patterns learned here (tool design, error handling, ADB/Docker wiring) back to the MCP community as a reference implementation.
